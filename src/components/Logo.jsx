@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logoImage from "/public/planet-outline.svg";
+import logoImage from "/planet-outline.svg";
 
 const Logo = () => {
   return (
