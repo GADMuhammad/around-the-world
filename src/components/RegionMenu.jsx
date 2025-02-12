@@ -13,9 +13,6 @@ const options = [
   { value: "French", label: "French" },
   { value: "Euro", label: "Euro 💶" },
   { value: "United States dollar", label: "United States Dollar 💸" },
-  { value: "Saudi riyal", label: "Saudi Riyal" },
-  // { value: "Sterling pound", label: "Sterling Pound" },
-  { value: "Egyptian pound", label: "Egyptian Pound" },
 ];
 
 export default function RegionMenu({ countriesList, filterCountriesList }) {
@@ -42,21 +39,15 @@ export default function RegionMenu({ countriesList, filterCountriesList }) {
         return countriesList.filter(
           (country) =>
             country.languages &&
-            Object.values(country.languages).includes(region),
+            Object.values(country.languages).includes(region)
         );
-      } else if (
-        region === "Euro" ||
-        // region === "Sterling pound" ||
-        region === "United States dollar" ||
-        region === "Saudi riyal" ||
-        region === "Egyptian pound"
-      ) {
+      } else if (region === "Euro" || region === "United States dollar") {
         return countriesList.filter(
           (country) =>
             country.currencies &&
             Object.values(country.currencies).some(
-              (currency) => currency.name === region,
-            ),
+              (currency) => currency.name === region
+            )
         );
       }
     }
@@ -76,7 +67,7 @@ export default function RegionMenu({ countriesList, filterCountriesList }) {
           control: () =>
             "flex h-12 items-center justify-between gap-12 rounded-md !border-none pl-4 pr-2 shadow dark:bg-gray-800",
           indicatorSeparator: () => "hidden",
-          option: () => "hover !text-gray-800",
+          option: () => "hover:text-gray-800",
           menu: () => "bg-gray-100 dark:bg-gray-800 dark:text-gray-100",
         }}
       />
